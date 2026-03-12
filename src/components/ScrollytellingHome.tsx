@@ -30,12 +30,7 @@ const featuredProjects = [
   },
 ];
 
-const stats = [
-  { number: "15+", label: "Projects Delivered" },
-  { number: "3+", label: "Years Experience" },
-  { number: "10+", label: "Happy Clients" },
-  { number: "3", label: "Companies" },
-];
+
 
 const skills = ["React", "Three.js", "TypeScript", "WebGL", "GSAP", "Node.js", "Figma", "Motion Design"];
 
@@ -49,7 +44,7 @@ function HeroChapter() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
   return (
-    <section ref={ref} className="relative min-h-[120vh] flex flex-col justify-end overflow-hidden pb-12">
+    <section ref={ref} className="relative min-h-[100vh] flex flex-col justify-end overflow-hidden pb-12">
       <Scene3D />
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background z-[1]" />
       <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40 z-[1]" />
@@ -111,21 +106,7 @@ function HeroChapter() {
             </Magnetic>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="glass-panel p-4 md:p-5 text-left md:text-center group hover-lift"
-              >
-                <p className="text-2xl md:text-3xl font-display font-bold gradient-text mb-1">
-                  {stat.number}
-                </p>
-                <p className="text-[10px] font-heading tracking-[0.25em] text-muted-foreground uppercase">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
+         
         </motion.div>
       </motion.div>
 
@@ -190,24 +171,7 @@ function AboutChapter() {
               </h2>
             </TextReveal>
 
-            {/* Stats inline */}
-            <div className="grid grid-cols-2 gap-4 mt-12">
-              {stats.map((stat, i) => (
-                <FadeUp key={stat.label} delay={0.15 * i}>
-                  <div className="glass-panel p-5 text-center group hover-lift">
-                    <motion.span
-                      initial={{ opacity: 0 }}
-                      animate={isInView ? { opacity: 1 } : {}}
-                      transition={{ delay: 0.5 + i * 0.1 }}
-                      className="text-2xl md:text-3xl font-display font-bold gradient-text block mb-1"
-                    >
-                      {stat.number}
-                    </motion.span>
-                    <span className="text-[10px] font-heading tracking-wider text-muted-foreground uppercase">{stat.label}</span>
-                  </div>
-                </FadeUp>
-              ))}
-            </div>
+           
           </div>
 
           <div className="md:col-span-7 flex flex-col justify-center">
@@ -489,11 +453,11 @@ function ContactChapter() {
             </Magnetic>
             <Magnetic>
               <a
-                href="mailto:hello@mithunraj.dev"
+                href="mailto:mithunmacsafe@gmail.com"
                 data-cursor="pointer"
                 className="text-sm font-heading tracking-wider text-muted-foreground hover:text-foreground transition-colors duration-500"
               >
-                hello@mithunraj.dev
+                mithunmacsafe@gmail.com
               </a>
             </Magnetic>
           </div>

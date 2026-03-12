@@ -5,7 +5,7 @@ import { ArrowUpRight, Calendar, MapPin, Award, Briefcase } from "lucide-react";
 
 const stats = [
   { number: "15+", label: "Projects Delivered", icon: Briefcase },
-  { number: "3+", label: "Years Experience", icon: Calendar },
+  { number: "4+", label: "Years Experience", icon: Calendar },
   { number: "10+", label: "Happy Clients", icon: Award },
   { number: "3", label: "Companies", icon: Award },
 ];

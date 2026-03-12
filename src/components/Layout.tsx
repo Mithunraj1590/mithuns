@@ -5,7 +5,7 @@ import CustomCursor from "./CustomCursor";
 
 const Layout = forwardRef<HTMLDivElement, { children: ReactNode }>(({ children }, ref) => {
   return (
-    <div ref={ref} className="min-h-screen bg-background text-foreground overflow-x-hidden grain">
+    <div ref={ref} className="min-h-screen bg-background text-foreground overflow-x-hidden grain no-cursor">
       <CustomCursor />
       <Navbar />
       <main>{children}</main>
