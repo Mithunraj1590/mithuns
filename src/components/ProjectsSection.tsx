@@ -1,85 +1,93 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { TextReveal, FadeUp, SectionNumber, LineDecoration, Magnetic } from "./AnimatedElements";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "Nova Dashboard",
-    category: "Web App",
+    title: "University Library",
+    category: "Management System",
     year: "2025",
-    description: "Real-time analytics platform with AI-powered data visualization and predictive insights engine. Built with React, D3.js and custom WebGL shaders for rendering millions of data points.",
-    tags: ["React", "Three.js", "D3", "AI", "WebGL"],
+    description: "Digital university library platform with secure auth, catalog search, borrowing approvals, and an operations-focused admin dashboard.",
+    tags: ["Next.js", "TypeScript"],
     number: "01",
     color: "from-primary/20 to-accent/10",
-    role: "Lead Developer & Designer",
-    duration: "6 months",
-  },
-  {
-    title: "Pulse Commerce",
-    category: "E-Commerce",
-    year: "2025",
-    description: "Next-gen shopping experience with 3D product previews, AR try-on, and spatial commerce. Features real-time inventory sync and dynamic pricing engine.",
-    tags: ["Next.js", "Stripe", "WebGL", "AR", "Node.js"],
-    number: "02",
-    color: "from-accent/20 to-warm/10",
     role: "Full-stack Developer",
     duration: "4 months",
+    href: "/work/university-library",
   },
   {
-    title: "Synth Studio",
-    category: "Creative Tool",
+    title: "Travel Agency",
+    category: "Web Application",
     year: "2024",
-    description: "Browser-based music production suite with real-time audio processing and generative composition. Uses WebAssembly for near-native audio performance.",
-    tags: ["Web Audio", "Canvas", "WASM", "React"],
-    number: "03",
-    color: "from-warm/20 to-primary/10",
-    role: "Creative Technologist",
-    duration: "8 months",
-  },
-  {
-    title: "Orbit Social",
-    category: "Social Platform",
-    year: "2024",
-    description: "Spatial social networking with audio rooms, live collaboration, and immersive 3D environments. Real-time WebRTC communication with spatial audio.",
-    tags: ["React", "WebRTC", "Three.js", "Socket.io"],
-    number: "04",
-    color: "from-primary/15 to-accent/15",
-    role: "Frontend Lead",
+    description: "Modern travel platform combining work and vacation through curated workation experiences for teams and individuals.",
+    tags: ["Next.js", "TypeScript", "Tailwind"],
+    number: "02",
+    color: "from-primary/20 to-warm/10",
+    role: "Full-stack Product Developer",
     duration: "5 months",
+    href: "/work/travel-agency",
   },
   {
-    title: "Neon Gallery",
-    category: "Art Platform",
+    title: "E Tutor",
+    category: "Education",
     year: "2024",
-    description: "Virtual gallery for digital artists featuring WebGL-rendered exhibition spaces with real-time lighting and interactive installations.",
-    tags: ["Three.js", "GLSL", "React", "Firebase"],
-    number: "05",
-    color: "from-accent/15 to-primary/10",
-    role: "Creative Developer",
-    duration: "3 months",
+    description: "Modern online learning platform with advanced course discovery, filtering, authentication, and responsive user experience.",
+    tags: ["Vue.js", "Vite", "Sass"],
+    number: "03",
+    color: "from-accent/20 to-primary/10",
+    role: "Frontend Developer",
+    duration: "4 months",
+    href: "/work/e-tutor",
   },
   {
-    title: "DataFlow",
-    category: "SaaS Tool",
-    year: "2023",
-    description: "Visual data pipeline builder with drag-and-drop nodes, real-time data preview, and automated workflow orchestration.",
-    tags: ["React", "D3", "Node.js", "PostgreSQL"],
+    title: "Furniro",
+    category: "E-Commerce",
+    year: "2025",
+    description: "Modern React-based e-commerce frontend with theme switching, product workflows, and responsive UX across all devices.",
+    tags: ["React.js"],
+    number: "04",
+    color: "from-warm/20 to-accent/10",
+    role: "Frontend Developer",
+    duration: "4 months",
+    href: "/work/furniro",
+  },
+  {
+    title: "Trumung Fashion Store",
+    category: "E-Commerce",
+    year: "2026",
+    description: "Premium editorial-first fashion storefront with lookbook storytelling, smooth interactions, and scalable commerce page architecture.",
+    tags: ["Next.js", "TypeScript", "React", "Tailwind CSS", "GSAP", "Lenis"],
+    number: "05",
+    color: "from-accent/20 to-warm/10",
+    role: "Frontend Developer",
+    duration: "6 months",
+    href: "/work/trumung-fashion-store",
+  },
+  {
+    title: "LeisureHoppers Destination Management (DMC)",
+    category: "Travel & Tourism",
+    year: "2025",
+    description: "B2B Thailand destination management website for travel agents, combining trust-focused storytelling and high-conversion inquiry workflows.",
+    tags: ["WordPress", "HTML5", "CSS3", "JavaScript", "Bootstrap 5", "AOS", "Lenis"],
     number: "06",
-    color: "from-warm/15 to-accent/10",
-    role: "Full-stack Developer",
-    duration: "7 months",
+    color: "from-primary/20 to-accent/10",
+    role: "Frontend Developer",
+    duration: "3 months",
+    href: "/work/leisurehoppers-dmc",
   },
 ];
 
-const categories = ["All", "Web App", "E-Commerce", "Creative Tool", "Social Platform", "Art Platform", "SaaS Tool"];
+const categories = ["All", "Management System", "Web Application", "Education", "E-Commerce", "Travel & Tourism"];
 
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <FadeUp delay={0.1 * index}>
-      <div
+      <Link
+        href={project.href}
         className="group relative border border-border/20 rounded-2xl overflow-hidden hover-lift"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -152,7 +160,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
             ))}
           </div>
         </div>
-      </div>
+      </Link>
     </FadeUp>
   );
 }

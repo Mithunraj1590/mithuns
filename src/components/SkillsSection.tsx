@@ -53,16 +53,11 @@ const tools = [
   { name: "Chrome DevTools", category: "Debug" },
 ];
 
-const certifications = [
-  { title: "AWS Certified Developer", issuer: "Amazon Web Services", year: "2024" },
-  { title: "Google UX Design", issuer: "Google / Coursera", year: "2023" },
-  { title: "Three.js Journey", issuer: "Bruno Simon", year: "2023" },
-];
-
 const languages = [
-  { name: "English", level: "Native" },
-  { name: "Spanish", level: "Conversational" },
-  { name: "Japanese", level: "Basic" },
+  { name: "English", level: "Fluent" },
+  { name: "Malayalam", level: "Native" },
+  { name: "Hindi", level: "Conversational" },
+  { name: "Tamil", level: "Conversational" },
 ];
 
 export default function SkillsSection() {
@@ -160,35 +155,8 @@ export default function SkillsSection() {
 
           <LineDecoration />
 
-          {/* Certifications & Languages */}
-          <div className="grid md:grid-cols-2 gap-16 mt-32">
-            {/* Certifications */}
-            <div>
-              <TextReveal>
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-10 leading-[0.9]">
-                  <span className="gradient-text">Certifications</span>
-                </h2>
-              </TextReveal>
-
-              <div className="space-y-4">
-                {certifications.map((cert, i) => (
-                  <FadeUp key={cert.title} delay={i * 0.1}>
-                    <div className="glass-panel p-6 group hover-lift">
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <h3 className="text-base font-display font-semibold group-hover:text-primary transition-colors duration-500">{cert.title}</h3>
-                          <p className="text-xs font-heading text-muted-foreground mt-1">{cert.issuer}</p>
-                        </div>
-                        <span className="text-xs font-heading tracking-wider text-primary/60">{cert.year}</span>
-                      </div>
-                    </div>
-                  </FadeUp>
-                ))}
-              </div>
-            </div>
-
-            {/* Languages */}
-            <div>
+          {/* Languages */}
+          <div className="mt-32">
               <TextReveal>
                 <h2 className="text-3xl md:text-4xl font-display font-bold mb-10 leading-[0.9]">
                   <span className="gradient-text">Languages</span>
@@ -205,7 +173,6 @@ export default function SkillsSection() {
                   </FadeUp>
                 ))}
               </div>
-            </div>
           </div>
         </div>
       </div>

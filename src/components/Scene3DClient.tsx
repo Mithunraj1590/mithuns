@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Sphere, Torus, Box } from "@react-three/drei";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect, useState } from "react";
 import * as THREE from "three";
 
 function WireIcosahedron() {
@@ -88,7 +88,7 @@ function WireBox() {
 }
 
 function Particles() {
-  const count = 300;
+  const count = 140;
 
   const positions = useMemo(() => {
     const arr = new Float32Array(count * 3);
@@ -123,9 +123,35 @@ function Particles() {
 }
 
 export default function Scene3DClient() {
+  const [canRenderScene, setCanRenderScene] = useState(false);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isSmallScreen = window.matchMedia("(max-width: 1024px)").matches;
+
+    const nav = navigator as Navigator & {
+      connection?: { saveData?: boolean };
+      deviceMemory?: number;
+    };
+
+    const saveData = Boolean(nav.connection?.saveData);
+    const lowMemory = typeof nav.deviceMemory === "number" ? nav.deviceMemory <= 4 : false;
+    const lowCpu = navigator.hardwareConcurrency <= 4;
+
+    setCanRenderScene(!(prefersReducedMotion || isSmallScreen || saveData || lowMemory || lowCpu));
+  }, []);
+
+  if (!canRenderScene) {
+    return null;
+  }
+
   return (
     <div className="absolute inset-0 z-0">
-      <Canvas camera={{ position: [0, 0, 6], fov: 55 }} dpr={[1, 1.5]}>
+      <Canvas
+        camera={{ position: [0, 0, 6], fov: 55 }}
+        dpr={[1, 1.2]}
+        gl={{ antialias: false, powerPreference: "low-power" }}
+      >
         <ambientLight intensity={0.1} />
         <pointLight position={[10, 10, 10]} intensity={0.3} color="#00e5ff" />
         <pointLight position={[-10, -10, -5]} intensity={0.2} color="#b84dff" />

@@ -8,25 +8,52 @@ const Scene3D = dynamic(() => import("./Scene3DClient"), { ssr: false });
 
 const featuredProjects = [
   {
-    title: "Nova Dashboard",
-    category: "Web App",
-    year: "2025",
-    tags: ["React", "Three.js", "D3", "AI"],
-    image: "linear-gradient(135deg, hsl(185 100% 50% / 0.2), hsl(280 80% 60% / 0.15))",
+    title: "Trumung Fashion Store",
+    category: "E-Commerce",
+    year: "2026",
+    tags: ["Next.js", "TypeScript", "React", "Tailwind CSS", "GSAP", "Lenis"],
+    image: "linear-gradient(135deg, hsl(330 50% 55% / 0.2), hsl(35 90% 55% / 0.14))",
+    href: "/work/trumung-fashion-store",
   },
   {
-    title: "Pulse Commerce",
+    title: "University Library",
+    category: "Management System",
+    year: "2025",
+    tags: ["Next.js", "TypeScript"],
+    image: "linear-gradient(135deg, hsl(210 30% 55% / 0.22), hsl(185 100% 50% / 0.14))",
+    href: "/work/university-library",
+  },
+  {
+    title: "Travel Agency",
+    category: "Web Application",
+    year: "2024",
+    tags: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
+    image: "linear-gradient(135deg, hsl(185 100% 50% / 0.2), hsl(35 90% 55% / 0.15))",
+    href: "/work/travel-agency",
+  },
+  {
+    title: "E Tutor",
+    category: "Education",
+    year: "2024",
+    tags: ["Vue.js", "Vite", "Sass"],
+    image: "linear-gradient(135deg, hsl(210 40% 60% / 0.2), hsl(280 80% 60% / 0.15))",
+    href: "/work/e-tutor",
+  },
+  {
+    title: "Furniro",
     category: "E-Commerce",
     year: "2025",
-    tags: ["Next.js", "Stripe", "WebGL"],
-    image: "linear-gradient(135deg, hsl(280 80% 60% / 0.2), hsl(35 90% 55% / 0.15))",
+    tags: ["React.js"],
+    image: "linear-gradient(135deg, hsl(35 90% 55% / 0.22), hsl(210 30% 55% / 0.15))",
+    href: "/work/furniro",
   },
   {
-    title: "Synth Studio",
-    category: "Creative Tool",
-    year: "2024",
-    tags: ["Web Audio", "Canvas", "WASM"],
-    image: "linear-gradient(135deg, hsl(35 90% 55% / 0.2), hsl(185 100% 50% / 0.15))",
+    title: "LeisureHoppers DMC",
+    category: "Travel & Tourism",
+    year: "2025",
+    tags: ["WordPress", "Bootstrap 5", "AOS", "Lenis"],
+    image: "linear-gradient(135deg, hsl(185 100% 50% / 0.2), hsl(210 30% 55% / 0.14))",
+    href: "/work/leisurehoppers-dmc",
   },
 ];
 
@@ -67,13 +94,13 @@ function HeroChapter() {
               Creative Developer & Designer
             </p>
           </TextReveal>
-          <TextReveal delay={0.4}>
-            <h1 className="text-[clamp(3rem,10vw,9rem)] font-display font-extrabold leading-[0.85] tracking-tight">
+          <TextReveal delay={0.4} className="overflow-visible">
+            <h1 className="text-[clamp(3rem,10vw,9rem)] font-display font-extrabold leading-[1.05] tracking-tight">
               Crafting
             </h1>
           </TextReveal>
-          <TextReveal delay={0.5}>
-            <h1 className="text-[clamp(3rem,10vw,9rem)] font-display font-extrabold leading-[0.85] tracking-tight">
+          <TextReveal delay={0.5} className="overflow-visible">
+            <h1 className="text-[clamp(3rem,10vw,9rem)] font-display font-extrabold leading-[1.05] tracking-tight">
               <span className="gradient-text">Digital</span>{" "}
               <span className="font-light italic text-foreground/40">Art</span>
             </h1>
@@ -260,7 +287,11 @@ function ProjectsChapter() {
         <div className="grid md:grid-cols-3 gap-6 mt-16">
           {featuredProjects.map((project, i) => (
             <FadeUp key={project.title} delay={i * 0.15}>
-              <div className="group relative rounded-2xl border border-border/20 overflow-hidden hover-lift" data-cursor="pointer">
+              <Link
+                href={project.href}
+                data-cursor="pointer"
+                className="group relative rounded-2xl border border-border/20 overflow-hidden hover-lift block"
+              >
                 {/* Visual area */}
                 <div
                   className="aspect-[4/3] relative overflow-hidden"
@@ -298,7 +329,7 @@ function ProjectsChapter() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </Link>
             </FadeUp>
           ))}
         </div>

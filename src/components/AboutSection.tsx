@@ -1,5 +1,6 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 import { TextReveal, FadeUp, SectionNumber, LineDecoration, Magnetic } from "./AnimatedElements";
 import { ArrowUpRight, Calendar, MapPin, Award, Briefcase } from "lucide-react";
 
@@ -98,12 +99,13 @@ export default function AboutSection() {
           <div className="grid md:grid-cols-12 gap-8 md:gap-16 mb-24">
             <FadeUp className="md:col-span-5">
               <div className="aspect-[3/4] rounded-2xl bg-gradient-to-br from-primary/10 via-card to-accent/10 border border-border/30 relative overflow-hidden group">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,hsl(var(--primary)/0.15),transparent_60%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,hsl(var(--accent)/0.1),transparent_60%)]" />
-                <div className="absolute inset-0 opacity-[0.03]" style={{
-                  backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-                  backgroundSize: '40px 40px'
-                }} />
+                <Image
+                  src="/about-me.webp"
+                  alt="About me portrait"
+                  fill
+                  className="object-cover"
+                  priority
+                />
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="glass-panel p-4">
                     <p className="text-xs font-heading tracking-wider text-primary uppercase mb-1">Currently</p>
