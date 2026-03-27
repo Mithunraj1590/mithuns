@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     title: "Mithun Raj — Portfolio",
     description: "Creative Developer & Designer. Crafting digital experiences.",
   },
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   robots: {
     index: true,
     follow: true,

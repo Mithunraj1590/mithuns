@@ -220,7 +220,7 @@ const workDetails: Record<string, WorkDetail> = {
       "AOS (Animate On Scroll)",
       "Lenis (Smooth Scroll)",
     ],
-    liveSiteUrl: "#",
+    liveSiteUrl: "https://leisurehoppersthai.com/",
     backgroundImageUrl:
       "https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=2000&q=80",
   },
