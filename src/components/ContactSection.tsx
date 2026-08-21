@@ -3,10 +3,8 @@ import { TextReveal, FadeUp, SectionNumber, LineDecoration, Magnetic } from "./A
 import { Send, ArrowUpRight } from "lucide-react";
 
 const socials = [
-  { label: "GitHub", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Twitter / X", href: "#" },
-  { label: "Dribbble", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/mithun-raj-dev" },
+  { label: "GitHub", href: "https://github.com/Mithunraj1590" },
 ];
 
 export default function ContactSection() {
@@ -86,6 +84,8 @@ export default function ContactSection() {
                     <Magnetic key={social.label}>
                       <a
                         href={social.href}
+                        target="_blank"
+                        rel="noreferrer"
                         data-cursor="pointer"
                         className="group flex items-center justify-between py-2 border-b border-border/20 hover:border-primary/30 transition-colors duration-500"
                       >

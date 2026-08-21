@@ -4,13 +4,16 @@ import { ArrowUpRight } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="relative">
-      {/* Big marquee CTA */}
-      <div className="border-t border-border/20 py-8 overflow-hidden">
-        <Marquee speed={80}>
+      {/* Big marquee banner */}
+      <div className="border-t border-border/20 py-8 md:py-12 overflow-hidden select-none pointer-events-none">
+        <Marquee speed={75}>
           {Array.from({ length: 6 }).map((_, i) => (
-            <span key={i} className="inline-flex items-center mx-6 text-6xl md:text-8xl font-display font-bold text-foreground/[0.03] uppercase whitespace-nowrap">
+            <span
+              key={i}
+              className="inline-flex items-center mx-6 text-5xl sm:text-6xl md:text-8xl font-display font-extrabold text-foreground/15 uppercase whitespace-nowrap"
+            >
               Let's Work Together
-              <span className="mx-6 text-primary/20">✦</span>
+              <span className="mx-6 text-primary/30">✦</span>
             </span>
           ))}
         </Marquee>
@@ -29,14 +32,19 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            {["GitHub", "LinkedIn", "Twitter"].map((label) => (
-              <Magnetic key={label}>
+            {[
+              { label: "LinkedIn", href: "https://www.linkedin.com/in/mithun-raj-dev" },
+              { label: "GitHub", href: "https://github.com/Mithunraj1590" },
+            ].map((social) => (
+              <Magnetic key={social.label}>
                 <a
-                  href="#"
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
                   data-cursor="pointer"
                   className="group flex items-center gap-1 text-xs font-heading tracking-wider text-muted-foreground hover:text-primary transition-colors duration-500 uppercase"
                 >
-                  {label}
+                  {social.label}
                   <ArrowUpRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </Magnetic>

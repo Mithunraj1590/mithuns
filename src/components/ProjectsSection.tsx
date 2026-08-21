@@ -13,6 +13,7 @@ const projects = [
     tags: ["Next.js", "TypeScript"],
     number: "01",
     color: "from-primary/20 to-accent/10",
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1200&q=80",
     role: "Full-stack Developer",
     duration: "4 months",
     href: "/work/university-library",
@@ -25,6 +26,7 @@ const projects = [
     tags: ["Next.js", "TypeScript", "Tailwind"],
     number: "02",
     color: "from-primary/20 to-warm/10",
+    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
     role: "Full-stack Product Developer",
     duration: "5 months",
     href: "/work/travel-agency",
@@ -37,6 +39,7 @@ const projects = [
     tags: ["Vue.js", "Vite", "Sass"],
     number: "03",
     color: "from-accent/20 to-primary/10",
+    image: "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1200&q=80",
     role: "Frontend Developer",
     duration: "4 months",
     href: "/work/e-tutor",
@@ -49,6 +52,7 @@ const projects = [
     tags: ["React.js"],
     number: "04",
     color: "from-warm/20 to-accent/10",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80",
     role: "Frontend Developer",
     duration: "4 months",
     href: "/work/furniro",
@@ -61,6 +65,7 @@ const projects = [
     tags: ["Next.js", "TypeScript", "React", "Tailwind CSS", "GSAP", "Lenis"],
     number: "05",
     color: "from-accent/20 to-warm/10",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
     role: "Frontend Developer",
     duration: "6 months",
     href: "/work/trumung-fashion-store",
@@ -73,13 +78,40 @@ const projects = [
     tags: ["WordPress", "HTML5", "CSS3", "JavaScript", "Bootstrap 5", "AOS", "Lenis"],
     number: "06",
     color: "from-primary/20 to-accent/10",
+    image: "https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=1200&q=80",
     role: "Frontend Developer",
     duration: "3 months",
     href: "/work/leisurehoppers-dmc",
   },
+  {
+    title: "BMH Perumbavoor",
+    category: "Healthcare",
+    year: "2025",
+    description: "Healthcare microsite with a fast HTML/CSS/JavaScript frontend and a robust Node.js + PostgreSQL CMS backend for doctor directories, clinical departments, and patient inquiries.",
+    tags: ["HTML5", "CSS3", "JavaScript", "Node.js", "PostgreSQL"],
+    number: "07",
+    color: "from-accent/20 to-primary/10",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
+    role: "Full-stack Developer",
+    duration: "3 months",
+    href: "/work/bmh-perumbavoor",
+  },
+  {
+    title: "Nuvio — Enterprise Workforce OS",
+    category: "Management System",
+    year: "2026",
+    description: "Modern workforce operating platform unifying multi-role dashboards (Admin, PM, Employee), task kanban boards, time tracking, department management, and productivity analytics.",
+    tags: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Zustand", "DnD Kit"],
+    number: "08",
+    color: "from-primary/20 to-warm/10",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    role: "Full-stack Developer",
+    duration: "4 months",
+    href: "/work/gc-project",
+  },
 ];
 
-const categories = ["All", "Management System", "Web Application", "Education", "E-Commerce", "Travel & Tourism"];
+const categories = ["All", "Management System", "Web Application", "Education", "E-Commerce", "Travel & Tourism", "Healthcare"];
 
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -88,26 +120,41 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
     <FadeUp delay={0.1 * index}>
       <Link
         href={project.href}
-        className="group relative border border-border/20 rounded-2xl overflow-hidden hover-lift"
+        className="group relative border border-border/20 rounded-2xl overflow-hidden hover-lift isolate [transform:translateZ(0)]"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         data-cursor="pointer"
       >
         {/* Visual area */}
-        <div className={`aspect-[16/10] relative overflow-hidden bg-gradient-to-br ${project.color}`}>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_30%,hsl(var(--background))_100%)]" />
-          <div className="absolute inset-0 opacity-[0.04]" style={{
-            backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-            backgroundSize: '30px 30px'
-          }} />
+        <div className={`aspect-[16/10] relative overflow-hidden bg-gradient-to-br ${project.color} isolate [transform:translateZ(0)]`}>
+          {/* Background image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out will-change-transform transform-gpu group-hover:scale-105"
+            style={{
+              backgroundImage: `url(${project.image})`,
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+            }}
+          />
+
+          {/* Gradients & textures */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/45 to-background/25" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_20%,hsl(var(--background))_100%)] opacity-75" />
+          <div
+            className="absolute inset-0 opacity-[0.04]"
+            style={{
+              backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+              backgroundSize: '30px 30px',
+            }}
+          />
 
           {/* Number overlay */}
-          <div className="absolute top-6 left-6">
-            <span className="text-6xl md:text-7xl font-display font-extrabold text-foreground/[0.06]">{project.number}</span>
+          <div className="absolute top-6 left-6 z-10">
+            <span className="text-6xl md:text-7xl font-display font-extrabold text-foreground/[0.12] drop-shadow-sm">{project.number}</span>
           </div>
 
           {/* Year badge */}
-          <div className="absolute top-6 right-6 glass-panel px-3 py-1">
+          <div className="absolute top-6 right-6 glass-panel px-3 py-1 z-10">
             <span className="text-[10px] font-heading tracking-wider text-muted-foreground">{project.year}</span>
           </div>
 
@@ -115,7 +162,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           <motion.div
             initial={{ opacity: 0 }}
             animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
-            className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center"
+            className="absolute inset-0 bg-background/85 backdrop-blur-sm flex items-center justify-center z-20"
           >
             <div className="text-center px-8">
               <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-md">{project.description}</p>
@@ -131,7 +178,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isHovered ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            className="absolute bottom-6 right-6 w-12 h-12 rounded-full border border-primary bg-primary/10 flex items-center justify-center"
+            className="absolute bottom-6 right-6 w-12 h-12 rounded-full border border-primary bg-primary/10 flex items-center justify-center z-20"
           >
             <ExternalLink size={18} className="text-primary" />
           </motion.div>
@@ -204,11 +251,10 @@ export default function ProjectsSection() {
                   key={cat}
                   onClick={() => setActiveFilter(cat)}
                   data-cursor="pointer"
-                  className={`text-xs px-5 py-2.5 rounded-full font-heading tracking-wider uppercase transition-all duration-500 border ${
-                    activeFilter === cat
-                      ? "border-primary bg-primary/10 text-primary"
-                      : "border-border/30 text-muted-foreground hover:border-primary/50 hover:text-primary"
-                  }`}
+                  className={`text-xs px-5 py-2.5 rounded-full font-heading tracking-wider uppercase transition-all duration-500 border ${activeFilter === cat
+                    ? "border-primary bg-primary/10 text-primary"
+                    : "border-border/30 text-muted-foreground hover:border-primary/50 hover:text-primary"
+                    }`}
                 >
                   {cat}
                 </button>

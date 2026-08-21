@@ -53,10 +53,10 @@ export function FadeUp({ children, delay = 0, className = "" }: FadeUpProps) {
 
 export function Marquee({ children, speed = 25 }: { children: ReactNode; speed?: number }) {
   return (
-    <div className="overflow-hidden whitespace-nowrap">
-      <div className="marquee-track" style={{ animationDuration: `${speed}s` }}>
-        {children}
-        {children}
+    <div className="overflow-hidden whitespace-nowrap w-full">
+      <div className="marquee-track flex w-max will-change-transform transform-gpu" style={{ animationDuration: `${speed}s` }}>
+        <div className="flex shrink-0 items-center">{children}</div>
+        <div className="flex shrink-0 items-center">{children}</div>
       </div>
     </div>
   );

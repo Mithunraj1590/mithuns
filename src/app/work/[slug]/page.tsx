@@ -224,6 +224,88 @@ const workDetails: Record<string, WorkDetail> = {
     backgroundImageUrl:
       "https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=2000&q=80",
   },
+  "bmh-perumbavoor": {
+    title: "BMH Perumbavoor",
+    year: "2025",
+    category: "Healthcare",
+    featured: true,
+    summary:
+      "BMH Perumbavoor is a dedicated healthcare microsite built with a high-performance HTML/CSS/JavaScript frontend and powered by a custom Node.js and PostgreSQL CMS backend for managing medical departments, doctor schedules, and patient inquiry workflows.",
+    about:
+      "This project delivers a specialized hospital microsite and content management system for BMH Perumbavoor. The frontend focuses on lightweight, accessible, and responsive user journeys for prospective patients, while the custom Node.js and PostgreSQL CMS backend empowers administrators to easily update doctor directories, department services, health packages, and appointment leads.",
+    challenges:
+      "Developing a lightweight, ultra-fast frontend that loads instantly across all mobile networks while building an intuitive, secure backend CMS to manage dynamic medical content, doctor rosters, and patient contact inquiries without relying on heavy third-party CMS bloat.",
+    solutions:
+      "Constructed a clean, semantic HTML5, CSS3, and modern JavaScript frontend optimized for speed, accessibility, and SEO. On the backend, engineered a RESTful Node.js and Express API backed by PostgreSQL for structured data storage, role-based admin auth, and reliable lead/inquiry management.",
+    results:
+      "Delivered an agile, dependable healthcare web platform with sub-second page loads, an easy-to-operate administration panel for hospital staff, and streamlined patient inquiry handling that boosted digital lead conversion.",
+    highlights: [
+      "Lightweight, mobile-first microsite frontend built with semantic HTML5, CSS3, and JavaScript",
+      "Custom Node.js and PostgreSQL CMS backend for dynamic content and doctor profile management",
+      "Interactive multi-specialty department showcase and clinical service directory",
+      "Doctor search and availability schedule module managed directly via CMS",
+      "Patient inquiry and appointment consultation form with backend database logging and alerts",
+      "Optimized performance with minimal bundle footprint and fast load times",
+    ],
+    outcome:
+      "BMH Perumbavoor achieved an accessible, modern, and easily maintainable digital presence that connects patients with specialized healthcare services while giving hospital administrators full control over their content.",
+    techStack: [
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6+)",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Custom CMS",
+      "RESTful APIs",
+    ],
+    liveSiteUrl: "https://www.babymemorialhospitals.com/landing-page/bmh-perumbavoor/",
+    backgroundImageUrl:
+      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=2000&q=80",
+  },
+  "gc-project": {
+    title: "Nuvio — Enterprise Workforce OS",
+    year: "2026",
+    category: "Management System",
+    featured: true,
+    summary:
+      "An enterprise-grade workforce operating system designed to unify multi-role dashboards, interactive project kanban boards, employee directories, time tracking, and productivity analytics in a fast, modular web application.",
+    about:
+      "Nuvio is an all-in-one workforce OS engineered to streamline internal operations for growing modern enterprises. Built with Next.js 16 (App Router), React 19, and Tailwind CSS v4, the platform features dedicated workspaces for Administrators, Project Managers, and Employees. It centralizes task execution via drag-and-drop kanban boards, time logging, attendance tracking, leave requests, and visual reporting into a single cohesive experience.",
+    challenges:
+      "Engineering a complex role-based platform that seamlessly delivers distinct data views and permissions for Admins, Project Managers, and Employees, while maintaining sub-frame UI responsiveness during heavy drag-and-drop task interactions and dynamic chart re-renders.",
+    solutions:
+      "Architected a modular widget system in Next.js App Router powered by Zustand for reactive client state and TanStack Query for server synchronization. Integrated @dnd-kit for fluid, accessible drag-and-drop task workflows, Chart.js & Recharts for real-time productivity metrics, and Zod schemas for end-to-end data safety.",
+    results:
+      "Delivered a lightning-fast, beautifully responsive enterprise workspace that replaces fragmented tools, accelerates cross-team collaboration, and provides leadership with actionable visibility into company-wide project delivery and team bandwidth.",
+    highlights: [
+      "Role-tailored dashboards with specialized views for Administrators, Project Managers, and Employees",
+      "Interactive task management and Plaky-compatible boards with fluid drag-and-drop (@dnd-kit)",
+      "Employee directory, department hierarchies, and organizational stats management",
+      "Real-time attendance summary, working hours logging, and leave balance tracking",
+      "Interactive productivity and project health analytics powered by Chart.js and Recharts",
+      "Modular widget architecture built with Next.js 16, React 19, Tailwind CSS v4, and Framer Motion",
+    ],
+    outcome:
+      "Nuvio establishes a unified, modern operational hub that elevates team productivity, simplifies project delivery, and scales gracefully across enterprise organizational structures.",
+    techStack: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Zustand",
+      "TanStack Query",
+      "@dnd-kit",
+      "Framer Motion",
+      "Chart.js",
+      "Recharts",
+      "Radix UI",
+      "Zod",
+    ],
+    liveSiteUrl: "https://gc-pro.vercel.app/",
+    backgroundImageUrl:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2000&q=80",
+  },
 };
 const projectOrder = Object.keys(workDetails);
 

@@ -12,7 +12,7 @@ const featuredProjects = [
     category: "E-Commerce",
     year: "2026",
     tags: ["Next.js", "TypeScript", "React", "Tailwind CSS", "GSAP", "Lenis"],
-    image: "linear-gradient(135deg, hsl(330 50% 55% / 0.2), hsl(35 90% 55% / 0.14))",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
     href: "/work/trumung-fashion-store",
   },
   {
@@ -20,7 +20,7 @@ const featuredProjects = [
     category: "Management System",
     year: "2025",
     tags: ["Next.js", "TypeScript"],
-    image: "linear-gradient(135deg, hsl(210 30% 55% / 0.22), hsl(185 100% 50% / 0.14))",
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1200&q=80",
     href: "/work/university-library",
   },
   {
@@ -28,7 +28,7 @@ const featuredProjects = [
     category: "Web Application",
     year: "2024",
     tags: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
-    image: "linear-gradient(135deg, hsl(185 100% 50% / 0.2), hsl(35 90% 55% / 0.15))",
+    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
     href: "/work/travel-agency",
   },
   {
@@ -36,7 +36,7 @@ const featuredProjects = [
     category: "Education",
     year: "2024",
     tags: ["Vue.js", "Vite", "Sass"],
-    image: "linear-gradient(135deg, hsl(210 40% 60% / 0.2), hsl(280 80% 60% / 0.15))",
+    image: "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1200&q=80",
     href: "/work/e-tutor",
   },
   {
@@ -44,7 +44,7 @@ const featuredProjects = [
     category: "E-Commerce",
     year: "2025",
     tags: ["React.js"],
-    image: "linear-gradient(135deg, hsl(35 90% 55% / 0.22), hsl(210 30% 55% / 0.15))",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80",
     href: "/work/furniro",
   },
   {
@@ -52,8 +52,24 @@ const featuredProjects = [
     category: "Travel & Tourism",
     year: "2025",
     tags: ["WordPress", "Bootstrap 5", "AOS", "Lenis"],
-    image: "linear-gradient(135deg, hsl(185 100% 50% / 0.2), hsl(210 30% 55% / 0.14))",
+    image: "https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=1200&q=80",
     href: "/work/leisurehoppers-dmc",
+  },
+  {
+    title: "BMH Perumbavoor",
+    category: "Healthcare",
+    year: "2025",
+    tags: ["HTML5", "CSS3", "JavaScript", "Node.js", "PostgreSQL"],
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
+    href: "/work/bmh-perumbavoor",
+  },
+  {
+    title: "Nuvio — Workforce OS",
+    category: "Management System",
+    year: "2026",
+    tags: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "DnD Kit"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    href: "/work/gc-project",
   },
 ];
 
@@ -290,25 +306,37 @@ function ProjectsChapter() {
               <Link
                 href={project.href}
                 data-cursor="pointer"
-                className="group relative rounded-2xl border border-border/20 overflow-hidden hover-lift block"
+                className="group relative rounded-2xl border border-border/20 overflow-hidden hover-lift block isolate [transform:translateZ(0)]"
               >
                 {/* Visual area */}
-                <div
-                  className="aspect-[4/3] relative overflow-hidden"
-                  style={{ background: project.image }}
-                >
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_30%,hsl(var(--background))_100%)]" />
+                <div className="aspect-[4/3] relative overflow-hidden bg-muted/20 isolate [transform:translateZ(0)]">
+                  {/* Background image */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out will-change-transform transform-gpu group-hover:scale-105"
+                    style={{
+                      backgroundImage: `url(${project.image})`,
+                      backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden",
+                    }}
+                  />
+
+                  {/* Contrast overlays */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-background/10" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_30%,hsl(var(--background))_100%)] opacity-60" />
+
                   {/* Grid overlay */}
                   <div className="absolute inset-0 opacity-[0.04]" style={{
                     backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
                     backgroundSize: '30px 30px'
                   }} />
+
                   {/* Year badge */}
-                  <div className="absolute top-4 right-4 glass-panel px-3 py-1">
+                  <div className="absolute top-4 right-4 glass-panel px-3 py-1 z-10">
                     <span className="text-[10px] font-heading tracking-wider text-muted-foreground">{project.year}</span>
                   </div>
+
                   {/* Hover arrow */}
-                  <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full border border-border/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-background/50 backdrop-blur-sm">
+                  <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full border border-primary bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm z-10">
                     <ArrowUpRight size={16} className="text-primary" />
                   </div>
                 </div>

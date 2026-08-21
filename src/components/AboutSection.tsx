@@ -133,7 +133,7 @@ export default function AboutSection() {
 
               <FadeUp delay={0.3}>
                 <p className="text-base text-muted-foreground leading-relaxed mb-6 max-w-lg">
-                  With over 5 years of experience at the intersection of design and engineering,
+                  With over 4 years of experience at the intersection of design and engineering,
                   I specialize in creating immersive digital experiences that push creative boundaries.
                   From 3D web experiences to complex data visualizations, I bring ideas to life
                   through thoughtful motion, precise typography, and obsessive attention to detail.
